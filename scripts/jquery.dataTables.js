@@ -2633,7 +2633,7 @@
 			
 			/* This can be overruled by not using the _MENU_ var/macro in the language variable */
 			var sName = 'name="'+oSettings.sTableId+'_length"';
-			var sStdMenu = '<select size="1" '+sName+'>';
+			var sStdMenu = '<select size="1" '+sName+' class="items-at-page dropdown autocomplete">';
 			var i, iLen;
 			var aLengthMenu = oSettings.aLengthMenu;
 			
@@ -2759,7 +2759,7 @@
 			}
 			
 			var nPaginate = document.createElement( 'div' );
-			nPaginate.className = oSettings.oClasses.sPaging+oSettings.sPaginationType;
+			nPaginate.className = "paginator-wrapper paginator";
 			
 			DataTable.ext.oPagination[ oSettings.sPaginationType ].fnInit( oSettings, nPaginate, 
 				function( oSettings ) {
@@ -11190,9 +11190,9 @@
 		"sPageJUIPrev": "",
 		
 		/* Full numbers paging buttons */
-		"sPageButton": "paginate_button",
-		"sPageButtonActive": "paginate_active",
-		"sPageButtonStaticDisabled": "paginate_button paginate_button_disabled",
+		"sPageButton": "",
+		"sPageButtonActive": "selected",
+		"sPageButtonStaticDisabled": "not-active",
 		"sPageFirst": "first",
 		"sPagePrevious": "previous",
 		"sPageNext": "next",
@@ -11410,11 +11410,11 @@
 				};
 	
 				$(nPaging).append(
-					'<a  tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPageFirst+'">'+oLang.sFirst+'</a>'+
-					'<a  tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPagePrevious+'">'+oLang.sPrevious+'</a>'+
+					'<a  tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPageFirst+'"></a>'+
+					'<div class="to-prev"><a  tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPagePrevious+'">&#160;</a></div>'+
 					'<span></span>'+
-					'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPageNext+'">'+oLang.sNext+'</a>'+
-					'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPageLast+'">'+oLang.sLast+'</a>'
+					'<div class="to-next"><a tabindex="'+oSettings.iTabIndex+'" class="to-next '+oClasses.sPageButton+" "+oClasses.sPageNext+'">&#160;</a></div>'+
+					'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+" "+oClasses.sPageLast+'"></a>'
 				);
 				var els = $('a', nPaging);
 				var nFirst = els[0],
@@ -11422,19 +11422,15 @@
 					nNext = els[2],
 					nLast = els[3];
 				
-				oSettings.oApi._fnBindAction( nFirst, {action: "first"},    fnClickHandler );
 				oSettings.oApi._fnBindAction( nPrev,  {action: "previous"}, fnClickHandler );
 				oSettings.oApi._fnBindAction( nNext,  {action: "next"},     fnClickHandler );
-				oSettings.oApi._fnBindAction( nLast,  {action: "last"},     fnClickHandler );
 				
 				/* ID the first elements only */
 				if ( !oSettings.aanFeatures.p )
 				{
 					nPaging.id = oSettings.sTableId+'_paginate';
-					nFirst.id =oSettings.sTableId+'_first';
 					nPrev.id =oSettings.sTableId+'_previous';
 					nNext.id =oSettings.sTableId+'_next';
-					nLast.id =oSettings.sTableId+'_last';
 				}
 			},
 			
@@ -11503,8 +11499,8 @@
 				for ( i=iStartButton ; i<=iEndButton ; i++ )
 				{
 					sList += (iCurrentPage !== i) ?
-						'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+'">'+oSettings.fnFormatNumber(i)+'</a>' :
-						'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButtonActive+'">'+oSettings.fnFormatNumber(i)+'</a>';
+						'<a href="#"><div class="paginator-item">'+oSettings.fnFormatNumber(i)+'</div></a>' :
+						'<a><div class="paginator-item ' + oClasses.sPageButtonActive + '">'+oSettings.fnFormatNumber(i)+'</div></a>';
 				}
 				
 				/* Loop over each instance of the pager */
