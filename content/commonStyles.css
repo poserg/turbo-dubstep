@@ -599,7 +599,7 @@ html body .voting-popup{width:800px;}
 .statements-wrapper .service:hover{ text-decoration:underline}
 
 .show-item, .dataTables_length {color:#96a5c7; font-size:12px; } 
-.dataTables_length {display: inline-block; float: right}
+.dataTables_length {display: inline-block; float: right ! important}
 .statements-wrapper .dropdown{border-color:#96a5c7; width:20px; background-image:url(images/dropdown-down-darkblue.png); color:#96a5c7; text-align:center}
  
 .statement-number{width:70px; float:left; margin-right:20px; font-weight:bold;}
