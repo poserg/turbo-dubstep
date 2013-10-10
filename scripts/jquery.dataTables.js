@@ -11523,13 +11523,14 @@
 						anButtons[anButtons.length-2], anButtons[anButtons.length-1]
 					];
 	
-					$(anStatic).removeClass( oClasses.sPageButton+" "+oClasses.sPageButtonActive+" "+oClasses.sPageButtonStaticDisabled );
-					$([anStatic[0], anStatic[1]]).addClass( 
+                                        $(anStatic[1]).parent().removeClass(oClasses.sPageButtonStaticDisabled);
+                                        $(anStatic[2]).parent().removeClass(oClasses.sPageButtonStaticDisabled);
+					$(anStatic[1]).parent().addClass( 
 						(iCurrentPage==1) ?
 							oClasses.sPageButtonStaticDisabled :
 							oClasses.sPageButton
 					);
-					$([anStatic[2], anStatic[3]]).addClass(
+					$(anStatic[2]).parent().addClass(
 						(iPages===0 || iCurrentPage===iPages || oSettings._iDisplayLength===-1) ?
 							oClasses.sPageButtonStaticDisabled :
 							oClasses.sPageButton
