@@ -585,7 +585,8 @@ html body .voting-popup{width:800px;}
 .statements-lister{width:100%;}
 .statements-lister td:nth-child(odd){width:200px}
 .statements-lister td:nth-child(even){text-align:center}
-.statements-lister .title{color:#5688cc; font-weight:bold; text-transform:uppercase}
+.statements-lister .title, .dataTables_info {color:#5688cc; font-weight:bold; text-transform:uppercase}
+.dataTables_info {display: inline-block; width: 25%}
 .statements-lister.statements-footer{margin-top:20px}
  
 .statements-list .pay, .statements-list .print{color:#235ba7}
@@ -597,7 +598,8 @@ html body .voting-popup{width:800px;}
 .statements-wrapper .service{color:#000; text-decoration:none}
 .statements-wrapper .service:hover{ text-decoration:underline}
 
-.show-item{color:#96a5c7; font-size:12px; } 
+.show-item, .dataTables_length {color:#96a5c7; font-size:12px; } 
+.dataTables_length {display: inline-block; float: right}
 .statements-wrapper .dropdown{border-color:#96a5c7; width:20px; background-image:url(images/dropdown-down-darkblue.png); color:#96a5c7; text-align:center}
  
 .statement-number{width:70px; float:left; margin-right:20px; font-weight:bold;}
@@ -610,6 +612,8 @@ html body .voting-popup{width:800px;}
 .statement-log .selected td{font-weight:700}
 .statement-log .selected td strong{font-weight:700}
 .statement-log .selected td:first-child{border-left:5px #8dc342 solid; padding:10px 10px 10px 5px;}
+
+.paginator {display: inline-block; width: 50%}
 /* #endregion */
 
 

@@ -8,7 +8,7 @@
   <body>
     <div class="statements-wrapper">
     <div class="box">
-      <table id="example" border="1" width="100%">
+      <table id="applicationsTable" border="1" width="100%">
       </table>
     </div>
     </div>
@@ -16,7 +16,7 @@
     <script src="scripts/jquery.dataTables.js"></script>
     <script>
 function createTable () {
-    $('#example').dataTable( {
+    $('#applicationsTable').dataTable( {
         "sPaginationType": "full_numbers",
         "jQuery.fn.dataTableExt.oPagination.iFullNumbersShowPages" : 4,
         "aaData": [
@@ -150,11 +150,13 @@ function createTable () {
             { "sTitle": "Grade", "sClass": "center" }
         ],
         "bPaginate": true,
-        "bInfo": false,
+        "bInfo": true,
 	"bFilter": false,
         "oLanguage": {
             "sLengthMenu": "Показывать по _MENU_ записей",
-        }
+            "sInfo": "Мои заявления",
+        },
+        "sDom": '<"top"ipl>rt<"bottom"ipl><"clear">'
     } );   
 };
       window.onload = function() {

@@ -2430,7 +2430,7 @@
 			}
 			
 			var n = oSettings.aanFeatures.i;
-			for ( var i=0, iLen=n.length ; i<iLen ; i++ )
+			for ( var i=0, iLen=n.length - 1; i<iLen ; i++ )
 			{
 				$(n[i]).html( sOut );
 			}
